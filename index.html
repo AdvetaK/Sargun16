@@ -125,4 +125,95 @@
   });
   function closeSecret(){document.getElementById('secret').classList.add('hidden');}
 </script></body>
+</html>        <p>Turning sixteen feels like standing at the edge of something quietly powerful. Not loud, not dramatic, but meaningful in a way that settles deep inside you. Watching you reach this age feels unreal, like time moved faster around you while still letting you remain exactly who you are. You have grown, yes, but you have also stayed gentle, thoughtful, warm. That balance is rare.</p>
+        <p>This page exists because some people leave fingerprints on your life without even trying. You are one of those people. Somewhere between school corridors, shared laughter, tired afternoons, and random conversations that didn’t seem important at the time, you became unforgettable. Not because you tried to be. But because you were real.</p>
+        <p>Lucknow Victory Adventure Park will always be more than just a place. It was freedom bottled into a single day. Screams that turned into laughter, fear that turned into courage, and moments where the world felt lighter simply because you were there. School trips were never about the destination. They were about stolen snacks, inside jokes, aching feet, and the comfort of knowing you were surrounded by people who made ordinary moments shine.</p>
+        <p>Even the everyday things became memories because of you. The bunks that felt like tiny rebellions. Menon coaching chaos where silence never lasted. Random laughter that made no sense to anyone else. These weren’t just moments. They were chapters. And you were always there, making them softer, brighter, easier to remember.</p>
+        <p>There is something quietly extraordinary about the way you exist in people’s lives. You don’t demand attention. You don’t need to be the loudest voice in the room. Yet your presence is felt immediately. You listen when others speak. You remember small details. You care in ways that feel safe. That kind of kindness stays with people long after conversations end.</p>
+        <p>At sixteen, the world starts to ask more questions. About who you are. Who you want to be. Where you are going. I hope you never feel pressured to have all the answers. You don’t need them yet. What you already have is enough. Your empathy. Your honesty. Your ability to make people feel comfortable just by being near you.</p>
+        <p>This letter keeps going because gratitude keeps going. Because even on the quiet days, even when nothing special happens, knowing you exists as a comfort. You have been a constant in ways you may not even realize. And that matters more than grand gestures ever could.</p>
+        <p>If there are days when you doubt yourself, I hope you remember this page. Remember that there are people who see you clearly and care deeply. Remember that you are appreciated not just for what you do, but for who you are. Consistently. Genuinely.</p>
+        <p>Sixteen is not just a number. It is a reminder that you are growing into yourself, step by step. I hope you stay curious. I hope you stay kind. I hope you protect your softness in a world that sometimes forgets how valuable it is. And I hope you never stop believing that you deserve all the good things coming your way.</p>
+        <p>If years from now you somehow find this page again, I hope it makes you smile. I hope it reminds you of a time when you were deeply loved, supported, and seen. Some bonds don’t fade with time. They grow quieter, deeper, and stronger. This is one of them.</p>
+        <p>Happy sixteenth birthday, Sargun. You matter more than words can hold.</p>
+      </div>
+    </section><!-- Quiz -->
+<section class="bg-white/80 backdrop-blur-xl rounded-3xl p-12 shadow-xl">
+  <h2 class="text-4xl font-bold mb-8">Friendship Quiz 📝</h2>
+  <div id="quiz"></div>
+</section>
+
+<!-- Celebrate -->
+<section class="text-center">
+  <button id="celebrateBtn" class="px-12 py-6 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full text-2xl shadow-2xl hover:scale-110 transition">
+    Celebrate Us 🎉
+  </button>
+</section>
+
+  </main>  <footer class="text-center py-10 text-sm text-gray-600">
+    Made with love 💕
+  </footer></div><!-- Easter Egg Modal --><div id="secret" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+  <div class="bg-white p-10 rounded-3xl max-w-xl">
+    <h2 class="text-4xl font-bold mb-6">You Found the Secret 💖</h2>
+    <p>You are cherished. Always.</p>
+    <button onclick="closeSecret()" class="mt-6">Close</button>
+  </div>
+</div><script>
+  // Theme toggle
+  const btn = document.getElementById('themeBtn');
+  btn.onclick = () => {
+    document.documentElement.classList.toggle('dark');
+    btn.textContent = document.documentElement.classList.contains('dark')
+      ? 'Switch to Day ☀️'
+      : 'Switch to Night 🌙';
+  };
+
+  // Quiz
+  const questions = [
+    { q: 'Where did our chaos peak?', o: ['Lucknow Adventure Park', 'Library', 'Classroom'], a: 0 },
+    { q: 'What made school unforgettable?', o: ['Homework', 'Bunks + laughs', 'Exams'], a: 1 },
+    { q: 'Menon coaching was remembered for?', o: ['Silence', 'Crazy laughs', 'Discipline'], a: 1 }
+  ];
+  let qi = 0, score = 0;
+  const quiz = document.getElementById('quiz');
+
+  function renderQ() {
+    if (qi >= questions.length) {
+      quiz.innerHTML = `<p class='text-xl'>Score: ${score}/${questions.length} 💖</p>`;
+      return;
+    }
+    const q = questions[qi];
+    quiz.innerHTML = `<p class='mb-4 text-lg'>${q.q}</p>` + q.o.map((x,i)=>
+      `<button class='block w-full mb-2 px-4 py-3 rounded-xl bg-pink-100' onclick='answer(${i})'>${x}</button>`
+    ).join('');
+  }
+
+  window.answer = (i) => {
+    if (i === questions[qi].a) score++;
+    qi++; renderQ();
+  };
+  renderQ();
+
+  // Confetti
+  document.getElementById('celebrateBtn').onclick = () => {
+    for (let i=0;i<30;i++){
+      const c=document.createElement('div');
+      c.className='fixed top-0 w-2 h-4 bg-pink-400 animate-bounce';
+      c.style.left=Math.random()*100+'%';
+      document.body.appendChild(c);
+      setTimeout(()=>c.remove(),2000);
+    }
+  };
+
+  // Easter egg
+  let buffer='';
+  window.addEventListener('keydown',e=>{
+    buffer+=e.key.toLowerCase();
+    if(buffer.includes('sargun')){
+      document.getElementById('secret').classList.remove('hidden');
+      buffer='';
+    }
+  });
+  function closeSecret(){document.getElementById('secret').classList.add('hidden');}
+</script></body>
 </html>
